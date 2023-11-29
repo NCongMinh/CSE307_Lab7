@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problem 3</title>
+    <style>
+      .example {
+        background-color: rgb(43, 226, 220);
+        color: green;
+        height: 40px;
+      }
+      div {
+        width: 500px;
+      }
+      .title {
+        color: blueviolet;
+      }
+    </style>
+    <script>
+      function change() {
+        document.querySelectorAll(".example")[0].style.backgroundColor =
+          "yellow";
+        const exampleList = document.querySelectorAll(".example");
+        const titleList = document.querySelectorAll(".title");
+        const linkList = document.querySelectorAll("a");
+        for (let i = 0; i < exampleList.length; i++) {
+          exampleList[i].style.color = "blue";
+          exampleList[i].style.border = "3px solid green";
+          exampleList[i].style.fontSize = "20px";
+          exampleList[i].style.marginLeft = "30px";
+          exampleList[i].style.padding = "5px";
+          titleList[i].style.color = "orange";
+          linkList[i].style.border = "3px solid red";
+          linkList[i].style.textDecoration = "none";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <p class="example">This is the first paragraph with class "example".</p>
+      <p class="example">Another paragraph with class "example".</p>
+      <p>This is a regular paragraph.</p>
+    </div>
+
+    <p><a href="#">Link with target attribute</a></p>
+    <p><a href="#">Another link with target attribute</a></p>
+
+    <h1 class="title">Title 1</h1>
+    <h2 class="title">Title 2</h2>
+
+    <input type="button" value="Change" onclick="change()" />
+  </body>
+</html>

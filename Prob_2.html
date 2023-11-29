@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problem 2</title>
+    <style>
+      .example {
+        background-color: rgb(43, 226, 220);
+        color: green;
+      }
+      div {
+        width: 500px;
+      }
+    </style>
+    <script>
+      function change() {
+        document.querySelector(".example").style.backgroundColor = "yellow";
+        document.querySelector(".example").style.color = "blue";
+        document.querySelector(".example").style.fontSize = "20px";
+        document.querySelector("a").style.border = "3px solid red";
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <center>
+        <p class="example">This is the first paragraph with class "example".</p>
+      </center>
+      <p>This is another paragraph.</p>
+    </div>
+
+    <p><a href="#">Link with target attribute</a></p>
+
+    <input type="button" value="Change" onclick="change()" />
+  </body>
+</html>

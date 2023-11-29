@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problem 4</title>
+    <style>
+      img.img-gallery {
+        height: 200px;
+      }
+      img.img-gallery:hover {
+        scale: 1.2;
+      }
+      div.overlay {
+        position: relative;
+        display: inline-block;
+      }
+      div.overlay button {
+        position: absolute;
+        top: 21px;
+        left: 5px;
+        background-color: transparent;
+        border: 0px;
+        scale: 2;
+
+        /* transform: translate(-50%, -50%); */
+      }
+    </style>
+    <script>
+      function expandImg(img, name) {
+        document.getElementById("result").innerHTML = ` <p> ${name}</p> 
+        <div class="overlay"> 
+        <button onclick="document.getElementById('result').innerHTML = ''">X</button>
+        <p><img src="${img}"/></p>
+        </div>`;
+      }
+    </script>
+  </head>
+  <body>
+    <p style="text-align: left"></p>
+    <center>
+      <h1>Tabbed Image Gallery</h1>
+      <p>Click on the images below:</p>
+      <img
+        class="img-gallery"
+        src="img/Davinci.png"
+        alt="Davinci"
+        onclick="expandImg(src, alt)"
+      />
+      <img
+        class="img-gallery"
+        src="img/EnglishForTech.jpg"
+        alt="English For Tech"
+        onclick="expandImg(src, alt)"
+      />
+      <img
+        class="img-gallery"
+        src="img/harrypotter.png"
+        alt="Harry Potter"
+        onclick="expandImg(src, alt)"
+      />
+      <img
+        class="img-gallery"
+        src="img/tinhoccoban.jpg"
+        alt="Tin học cơ bản"
+        onclick="expandImg(src, alt)"
+      />
+      <div id="result"></div>
+    </center>
+  </body>
+</html>
