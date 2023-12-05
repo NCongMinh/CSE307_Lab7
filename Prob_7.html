@@ -1,1 +1,97 @@
-g
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problem 7</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        padding: 10px; /* Khoảng cách giữa chữ và cell */
+        border: 1px solid; /* Đường viền của cell */
+        text-align: left; /* Căn lề văn bản sang trái */
+      }
+    </style>
+    <script>
+      function createRows(number) {
+        let tableBody = document.getElementById("tableBody");
+        for (let i = 0; i < number; i++) {
+          let row = document.createElement("tr");
+          row.innerHTML = `
+        <td id="cell-${i}-1"></td>
+        <td id="cell-${i}-2"></td>
+        <td id="cell-${i}-3"></td>
+        <td id="cell-${i}-4"></td>
+        <td id="cell-${i}-5"></td>
+        <td id="cell-${i}-6"></td>
+        <td id="cell-${i}-7"></td>
+            `;
+          tableBody.appendChild(row);
+        }
+      }
+      function RenderItem(data) {
+        for (let i = 0; i < data.length; i++) {
+          for (let j = 1; j <= 7; j++) {
+            let item = document.getElementById("cell-" + i + "-" + j);
+            switch (j) {
+              case 1:
+                item.innerText = data[i].email;
+                break;
+              case 2:
+                item.innerText = data[i].username;
+                break;
+              case 3:
+                item.innerHTML = ` <div class="mb-3">
+      <input type="password" class="form-control" name="" id="" placeholder="" value="${data[i].password}">
+    </div>`;
+                break;
+              case 4:
+                item.innerText = data[i].name.firstname;
+                break;
+              case 5:
+                item.innerText = data[i].name.lastname;
+                break;
+              case 6:
+                item.innerText = data[i].phone;
+                break;
+              case 7:
+                item.innerHTML = `${data[i].address.number}-${data[i].address.street}-${data[i].address.city}`;
+                break;
+            }
+          }
+        }
+      }
+      async function GetData() {
+        var url = "https://fakestoreapi.com/users";
+        var data;
+        await fetch(url)
+          .then((res) => res.json())
+          .then((json) => (data = json));
+        console.log(data);
+        RenderItem(data);
+      }
+    </script>
+  </head>
+  <body onload="GetData()">
+    <table border="1" id="mainTable" padding="10px">
+      <tr>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone</th>
+        <th>Address</th>
+      </tr>
+      <tbody id="tableBody"></tbody>
+      <script>
+        createRows(10);
+      </script>
+    </table>
+  </body>
+</html>
